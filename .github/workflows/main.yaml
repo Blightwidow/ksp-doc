@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: yarn install
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install # will run `yarn install` command
+      - name: yarn lint
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: run lint
+      - name: yarn build
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: run build
