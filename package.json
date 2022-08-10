@@ -12,18 +12,23 @@
     "@markdoc/next.js": "latest",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-icons": "^4.4.0",
+    "typeface-exo-2": "^1.1.13"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.14.1",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "autoprefixer": "^10.4.8",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.4",
     "eslint-config-prettier": "^8.5.0",
+    "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "serve": "^14.0.1",
+    "tailwindcss": "^3.1.8",
     "typescript": "latest"
   },
   "packageManager": "yarn@3.2.2"
