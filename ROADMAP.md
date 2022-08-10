@@ -10,7 +10,7 @@ _Status: In Progress_
 In this phase of the project the focus is to have a pleasant experience with the website. The
 expected features are:
 
-- [ ] Responsive design
+- [x] Responsive design
 - [ ] A clear domain with HTTPS
 - [ ] An easy to use structure and navigation
 

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --top-nav-height: 57px;
+  --top-nav-height: 56px;
 }
 
 *,

@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 
-import { SideNav, TableOfContents, TopNav } from '../components'
+import { SideNav, TableOfContents, TopNav, UiStateContextProvider } from '../components'
 
 import '../styles/globals.css'
 import 'typeface-exo-2'
@@ -52,7 +52,7 @@ export default function MyApp({ Component, router, pageProps }: AppProps) {
   const toc = pageProps.markdoc?.content ? collectHeadings(pageProps.markdoc.content) : []
 
   return (
-    <>
+    <UiStateContextProvider>
       <Head>
         <title>{router.pathname === '/' ? title : `KSP Doc | ${title}`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -87,6 +87,6 @@ export default function MyApp({ Component, router, pageProps }: AppProps) {
           }
         `}
       </style>
-    </>
+    </UiStateContextProvider>
   )
 }

@@ -4,6 +4,8 @@ import { TbLayoutSidebarLeftCollapse } from 'react-icons/tb'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
+import { useUiState } from './UiStateContext'
+
 const GET_STARTED_ITEMS = [
   { href: '/en/get-started', children: 'Overview' },
   { href: '/en/get-started/installation', children: 'Installation' },
@@ -41,22 +43,28 @@ const TABS = [
 export function SideNav() {
   const router = useRouter()
   const [activeTab, setActiveTab] = React.useState<number | null>(0)
-  const [showNav, setShowNav] = React.useState<boolean>(true)
+  const { toggledNav, toggleNav } = useUiState()
+
+  const handleClick = React.useCallback(() => {
+    if (typeof visualViewport !== 'undefined' && visualViewport.width <= 768) {
+      toggleNav()
+    }
+  }, [toggleNav])
 
   return (
     <nav
       className={[
-        showNav ? 'w-60' : 'w-12',
-        'sticky flex-[0_0_auto] overlflow-y-auto overlflow-x-auto py-6 px-3 border-r border-gray-700 transition-all ease-in-out',
+        toggledNav ? 'left-0 md:w-12' : '-left-full md:w-60',
+        'sidenav bg-bgColor bottom-0 w-full fixed md:sticky flex-[0_0_auto] overlflow-y-auto overlflow-x-auto py-6 px-3 border-r border-gray-700 transition-all ease-in-out',
       ]
         .filter(Boolean)
         .join(' ')}
     >
-      <div className="flex flex-row justify-end mb-4">
-        <button onClick={() => setShowNav(!showNav)}>
+      <div className="flex-row justify-end mb-4 hidden md:flex">
+        <button onClick={toggleNav}>
           <TbLayoutSidebarLeftCollapse
             size={20}
-            className={['transition-transform ease-in-out', !showNav && 'rotate-180']
+            className={['transition-transform ease-in-out', toggledNav && 'md:rotate-180']
               .filter(Boolean)
               .join(' ')}
           />
@@ -64,15 +72,20 @@ export function SideNav() {
       </div>
       <ul
         className={[
-          showNav ? 'opacity-100' : 'opacity-0',
-          'flex flex-col transition-opacity text-clip w-56 ease-in-out',
+          toggledNav ? 'opacity-100 md:opacity-0' : 'opacity-0 md:opacity-100',
+          'flex flex-col transition-opacity text-clip md:w-56 ease-in-out',
         ]
           .filter(Boolean)
           .join(' ')}
       >
         <li className="ml-5">
           <Link href="/" passHref>
-            <a className={router.pathname === '/' ? 'text-primary' : 'text-gray-400'}>Home</a>
+            <a
+              onClick={handleClick}
+              className={router.pathname === '/' ? 'text-primary' : 'text-gray-400'}
+            >
+              Home
+            </a>
           </Link>
         </li>
         {TABS.map((tab, index) => {
@@ -105,6 +118,7 @@ export function SideNav() {
                   <li key={link.href} className="my-2">
                     <Link href={link.href} passHref>
                       <a
+                        onClick={handleClick}
                         className={router.pathname === link.href ? 'text-primary' : 'text-gray-400'}
                       >
                         {link.children}
@@ -117,6 +131,13 @@ export function SideNav() {
           )
         })}
       </ul>
+      <style jsx>
+        {`
+          .sidenav {
+            height: calc(100vh - var(--top-nav-height));
+          }
+        `}
+      </style>
     </nav>
   )
 }
