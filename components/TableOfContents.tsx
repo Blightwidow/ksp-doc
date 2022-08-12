@@ -12,7 +12,7 @@ export function TableOfContents({ toc }) {
   return (
     <nav className="hidden lg:block flex-[0_0_auto] sticky py-6 pl-3 pl-8 w-60 top-0">
       <p className="uppercase">On this page</p>
-      <ul className="flex flex-col transition-opacity text-clip w-56">
+      <ul className="list-none flex flex-col transition-opacity text-clip w-56">
         {items.map((item) => {
           const href = `#${item.id}`
           const active = typeof window !== 'undefined' && window.location.hash === href

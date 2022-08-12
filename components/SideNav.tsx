@@ -10,6 +10,8 @@ const GET_STARTED_ITEMS = [
   { href: '/en/get-started', children: 'Overview' },
   { href: '/en/get-started/installation', children: 'Installation' },
   { href: '/en/get-started/differences-with-ksp', children: 'Differences with the base game' },
+  { href: '/en/get-started/other-mods', children: 'Mod compatibility' },
+  { href: '/en/get-started/science-playthrough', children: 'Science playthrough' },
 ]
 const PLAYTHROUGH_HELP_ITEMS = [
   { href: '/en/playthrough-help', children: 'Overview' },
@@ -45,6 +47,16 @@ export function SideNav() {
   const [activeTab, setActiveTab] = React.useState<number | null>(0)
   const { toggledNav, toggleNav } = useUiState()
 
+  React.useEffect(() => {
+    for (let i = 0; i < TABS.length; i++) {
+      const links = TABS[i].items.map((item) => item.href)
+
+      if (links.includes(router.pathname)) {
+        setActiveTab(i)
+      }
+    }
+  }, [router.pathname])
+
   const handleClick = React.useCallback(() => {
     if (typeof visualViewport !== 'undefined' && visualViewport.width <= 768) {
       toggleNav()
@@ -73,7 +85,7 @@ export function SideNav() {
       <ul
         className={[
           toggledNav ? 'opacity-100 md:opacity-0' : 'opacity-0 md:opacity-100',
-          'flex flex-col transition-opacity text-clip md:w-56 ease-in-out',
+          'list-none flex flex-col transition-opacity text-clip md:w-56 ease-in-out',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -109,7 +121,7 @@ export function SideNav() {
                 aria-hidden={activeTab !== index}
                 className={[
                   activeTab !== index ? 'max-h-0' : 'max-h-screen',
-                  'transition-all flex-col overflow-hidden pl-6 ease-in-out duration-300',
+                  'list-none transition-all flex-col overflow-hidden pl-6 ease-in-out duration-300',
                 ]
                   .filter(Boolean)
                   .join(' ')}

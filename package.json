@@ -2,7 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "yarn build:index && yarn build:app",
+    "build:app": "next build && next export",
+    "build:index": "node ./bin/buildSearchIndex.js",
     "lint": "next lint && prettier check .",
     "start": "next start",
     "serve": "serve out/"
@@ -10,10 +12,12 @@
   "dependencies": {
     "@markdoc/markdoc": "latest",
     "@markdoc/next.js": "latest",
+    "lunr": "^2.3.9",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.4.0",
+    "react-lunr": "^1.1.0",
     "typeface-exo-2": "^1.1.13"
   },
   "devDependencies": {

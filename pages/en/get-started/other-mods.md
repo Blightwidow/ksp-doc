@@ -1,11 +1,25 @@
 ---
-title: Get started with Markdoc
-description: How to get started with Markdoc
+title: Mod compatibility
+description: What mod to use and avoid on RP-1
 date: 09/09/2022
 ---
 
-# Under Construction
+# Mod compatibility
 
-{% callout %}
-This page is under construction and will be ready soon
-{% /callout %}
+## Recomended mods ✅
+
+| Mod | Description |
+|-----|-------------|
+| t   | e           |
+
+## Compatible mods 🆗
+
+| Mod | Description |
+|-----|-------------|
+| t   | e           |
+
+## Mods to avoid ❌
+
+| Mod | Description |
+|-----|-------------|
+| t   | e           |

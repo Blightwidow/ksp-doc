@@ -12,7 +12,7 @@ expected features are:
 
 - [x] Responsive design
 - [ ] A clear domain with HTTPS
-- [ ] An easy to use structure and navigation
+- [x] An easy to use structure and navigation
 
 ## M2 - Content basic
 
@@ -33,14 +33,26 @@ pages are:
 
 - [ ] Some science-oriented pages around rocketry
 - [ ] More space race history
+- [ ] Playthrough content to the Moon and how to continue beyond
 
-## M4 - Internationalizing
+## M4 - Search
 
-_Status: Planned_
+_Status: Done_
 
 In this phase of the project the focus is adding a search bar for exploring the content easily.
 
-## M5 - Internationalizing
+## M5 - SEO
+
+_Status: Planned_
+
+In this phase of the project the focus is cleaerning SEO metrics:
+- [ ] 90+ score on lighthouse
+- [ ] a11y checklist
+- [ ] meta and head are clean
+- [ ] social media previews
+- [ ] service worker for offline browsing
+
+## M6 - Internationalizing
 
 _Status: Under consideration_
 

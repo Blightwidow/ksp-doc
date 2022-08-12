@@ -4,7 +4,7 @@ description: All you need to master the iconic mods of KSP
 date: 09/09/2022
 ---
 
-# KSP RSS/RP-1 Documentation
+# KSP RO/RP-1 Documentation
 
 This website is an open source project aimed at providing a solid documentation on how to tackle
 the Kerbal Space Program mods [Real Solar System](https://forum.kerbalspaceprogram.com/index.php?/topic/177216-18-real-solar-system-v1815-27-jun-2021/),

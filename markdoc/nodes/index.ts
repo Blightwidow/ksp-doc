@@ -1,2 +1,4 @@
 /* Use this file to export your markdoc nodes */
 export * from './heading.markdoc';
+export * from './link.markdoc';
+export * from './list.markdoc';

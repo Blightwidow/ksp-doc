@@ -48,3 +48,8 @@ file and then open a PR or an issue.
 ## License
 
 This project is licensed under the GPL 3 License - see the [LICENSE.md](LICENSE.md) file for details
+
+Some part of this project are derived from open source project:
+
+- Some content is based on [RP-1 wiki](https://github.com/KSP-RO/RP-0/wiki) under Creative Commons
+  Attribution Non-Commercial Share-Alike 4.0 International license

@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import fs from 'fs'
 
 import { SideNav, TableOfContents, TopNav, UiStateContextProvider } from '../components'
 
@@ -72,7 +73,7 @@ export default function MyApp({ Component, router, pageProps }: AppProps) {
       </TopNav>
       <div className="content flex fixed w-screen flex-initial">
         <SideNav />
-        <main className="flex column flex-auto px-8 overflow-auto ">
+        <main className="flex column flex-auto px-8 overflow-auto">
           <Component {...pageProps} />
           <TableOfContents toc={toc} />
         </main>
@@ -89,4 +90,20 @@ export default function MyApp({ Component, router, pageProps }: AppProps) {
       </style>
     </UiStateContextProvider>
   )
+}
+
+export async function getStaticProps() {
+  await new Promise<void>((resolve, reject) =>
+    fs.writeFile('./search.json', 'toto', (err) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve()
+      }
+    })
+  )
+
+  return {
+    props: {},
+  }
 }

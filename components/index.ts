@@ -1,6 +1,7 @@
 export * from './Callout'
 export * from './Heading'
 export * from './SideNav'
+export * from './Spacer'
 export * from './TableOfContents'
 export * from './TopNav'
 export * from './UiStateContext'
