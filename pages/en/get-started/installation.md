@@ -7,7 +7,7 @@ date: 10/09/2022
 # Installation
 
 The official instruction for installing RP-1 are
-found [here](https://github.com/KSP-RO/RP-0/wiki/RO-&-RP-1-Express-Installation-for-1.12.3)
+found [on the official wiki](https://github.com/KSP-RO/RP-0/wiki/RO-&-RP-1-Express-Installation-for-1.12.3)
 but they are quite simple and will be summarised below.
 
 ## Prerequisites

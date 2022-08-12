@@ -6,6 +6,7 @@ import { BsSearch, BsXLg } from 'react-icons/bs'
 
 import { useUiState } from './UiStateContext'
 import { useSearch } from '../utils/useSearch'
+import icon from '../public/favicon-32x32.png'
 
 export function TopNav({ children }) {
   const { toggleNav } = useUiState()
@@ -15,12 +16,12 @@ export function TopNav({ children }) {
   return (
     <nav className="z-10 flex fixed top-0 inset-x-0 flex-initial flex-row align-center justify-between gap-1 p-4 border-b border-gray-700 items-center">
       <div className="flex gap-2">
-        <button onClick={toggleNav} className="md:hidden">
+        <button onClick={toggleNav} className="md:hidden" aria-label="open the navigation menu">
           <GiHamburgerMenu size={20} />
         </button>
         <Link href="/" passHref>
           <a className="text-gray-400 flex gap-1">
-            <Image src="/favicon.ico" width={24} height={24} alt="rocket logo" />
+            <Image src={icon} width={24} height={24} alt="rocket logo" />
             Home
           </a>
         </Link>
@@ -32,7 +33,7 @@ export function TopNav({ children }) {
           className="bg-transparent px-2 grow"
           onChange={(event) => setSearchInputValue(event.target.value)}
         />
-        <button onClick={() => setSearchInputValue('')}>
+        <button onClick={() => setSearchInputValue('')} aria-label="clear the search">
           <BsXLg size={12} />
         </button>
       </div>
